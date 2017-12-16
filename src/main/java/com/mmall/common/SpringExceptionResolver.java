@@ -29,7 +29,7 @@ public class SpringExceptionResolver implements HandlerExceptionResolver {
         // 所有请求json数据，都使用.json结尾
         // 所有请求page页面，都使用.page结尾
         if (url.endsWith(URL_JSON)) {
-            if (e instanceof PermissionException) {
+            if (e instanceof PermissionException || e instanceof PermissionException) {
                 JsonData result = JsonData.fail(e.getMessage());
                 mv = new ModelAndView("jsonView", result.toMap());
             } else {
